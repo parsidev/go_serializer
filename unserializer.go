@@ -19,6 +19,11 @@ func findNextValue(data string) (interface{}, string, error) {
 		value, _ := strconv.Atoi(data[2:endIndex])
 		rest := data[endIndex+1:]
 		return value, rest, nil
+	case strings.HasPrefix(data, "u:"):
+		endIndex := strings.Index(data, ";")
+		value, _ := strconv.ParseUint(data[2:endIndex], 0, 64)
+		rest := data[endIndex+1:]
+		return value, rest, nil
 	case strings.HasPrefix(data, "d:"):
 		endIndex := strings.Index(data, ";")
 		value, _ := strconv.ParseFloat(data[2:endIndex], 64)

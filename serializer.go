@@ -24,7 +24,7 @@ func serializeValue(value reflect.Value, buffer *bytes.Buffer) error {
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		buffer.WriteString(fmt.Sprintf("i:%d;", value.Int()))
 	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-		buffer.WriteString(fmt.Sprintf("i:%d;", value.Uint()))
+		buffer.WriteString(fmt.Sprintf("u:%d;", value.Uint()))
 	case reflect.Float32, reflect.Float64:
 		buffer.WriteString(fmt.Sprintf("d:%f;", value.Float()))
 	case reflect.Bool:
