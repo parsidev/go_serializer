@@ -62,6 +62,10 @@ func unSerializeValue(data string) (interface{}, error) {
 		endIndex := strings.Index(data, ";")
 		value, _ := strconv.Atoi(data[2:endIndex])
 		return value, nil
+	case strings.HasPrefix(data, "u:"):
+		endIndex := strings.Index(data, ";")
+		value, _ := strconv.ParseUint(data[2:endIndex], 0, 64)
+		return value, nil
 	case strings.HasPrefix(data, "d:"):
 		endIndex := strings.Index(data, ";")
 		value, _ := strconv.ParseFloat(data[2:endIndex], 64)
